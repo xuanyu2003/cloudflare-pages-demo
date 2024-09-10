@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js Basic Example</title>
+    <!-- Include Vue.js via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+    <!-- Vue App Container -->
+    <div id="app">
+        <!-- Data binding with Mustache syntax -->
+        <h1>{{ message }}</h1>
+
+        <!-- Input binding and two-way data binding using v-model -->
+        <input v-model="message" placeholder="Type something">
+
+        <!-- Conditional rendering with v-if -->
+        <p v-if="message.length > 0">You typed: {{ message }}</p>
+        <p v-else>Please type something above.</p>
+
+        <!-- Event handling with v-on -->
+        <button v-on:click="reverseMessage">Reverse Message</button>
+    </div>
+
+    <!-- Vue.js App Script -->
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello, Vue.js!'
+            },
+            methods: {
+                reverseMessage: function () {
+                    this.message = this.message.split('').reverse().join('');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
